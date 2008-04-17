@@ -1,0 +1,110 @@
+= InputsWithClass 
+
+== Intro
+
+Inputs_with_class automatically applies best-practice (universal standard) css naming conventions to
+all rails generated form elements, giving your css developer full style control of forms 
+right out of the starting gates.
+
+  * Rails generated select lists automatically get classed as 'single' or 'multiple'.
+  
+        <select class='multiple' multiple='multiple' size='2' >
+        <select class='single'>
+    
+  * Rails generated <input/> tags automatically get classed for their 'type' value.
+  
+        <input class='password' type='password'/>
+        <input class='checkbox' type='checkbox'/>
+        <input class='button' type='button'/>
+        <input class='hidden' type='hidden'/>
+        <input class='submit' type='submit />
+        <input class='image' type='image'/>
+        <input class='radio' type='radio'/>
+        <input class='file' type='file' />
+        <input class='text' type='text'/>
+        
+  * Avoid naming conflicts with your existing css classes by adding an optional 
+    INPUTS_WITH_CLASS_PREFIX in the config block of your config/environments.rb.
+    
+        INPUTS_WITH_CLASS_PREFIX = 'bacon-'
+        
+    Gets you this....
+    
+        <input type="text"  class="bacon-text" />
+        <input type="radio" class="bacon-radio" />
+   
+  * Generate a starter stylesheet with all related classes and some basic default 
+    styles. From the command line in your app root...
+    
+        rake inputs_with_class_css
+        
+  * Plays nice with any ad-hoc helper classing you do, so you get... 
+    
+      class="yourclass inputswithclassclass"
+
+  * When the time comes, and you suddenly decide to get unclassy again just pass in 
+  
+      :class => false
+  
+  * 25 tests confirm functionality in all relevant rails helpers. From the command line in your app root...
+  
+        cd vendor/plugins/inputs_with_class
+        rake test
+  
+  * Heads up for these gotchas when the INPUTS_WITH_CLASS_PREFIX is added 
+    or changed.
+    
+        * Then names in your stylesheet need to be manually changed to match.
+        * The server needs to be restarted for the prefix to register.
+        
+  * Future dev goals:
+
+        * todo: Apply the pattern within the haml engine (if present) to 
+          automatically style any hand coded %input and %select tags. Git 
+          branches toward this goal are welcome. (-:
+
+
+== Back Story
+
+  When a CSS developer wants to set the width of all text fields to a standard 
+  200px, they might try this.
+
+      input { width: 200px; }
+
+  Unfortunately this not only makes all text inputs 200px, but also all radio 
+  buttons, checkboxes, etc. All are represented by the same html element called 
+  <input/> . In modern browsers there is a solution using 'attribute selectors' 
+  like so:
+
+      input[ type="text" ]  {width: 200px;} 
+      input[ type="radio" ] {width:  30px;}
+
+    Problem solved! Time to go do something super fun! But not so fast. )-: IE6 rears its ugly
+    head and injects another fat dose of 'un' in our fun with no support for attribute selectors. 
+    Instead the consensus among UI developers is to manually add a class named for the input-type 
+    of the form element - so you get the pattern...
+
+      <input type='text'  class='text' />
+      <input type='radio' class='radio'/>
+
+  It's a common practice that clutters rails helper calls with predictable classes.
+  The inputs_with_class plugin automates this pattern along with two additional common
+  class patterns to style our 'single' and 'multiple' select lists.
+
+
+== To Install
+
+  1. Git it into your plugins directory.
+
+        git clone git@github.com:leewbutler/inputs_with_class.git
+
+  2. Add the css file to your public/stylesheets directory.
+
+        rake inputs_with_class_css
+
+  3. Call the stylesheet from the head of your .erb template.
+
+        <%= stylesheet_link_tag 'input_classes.css' %> 
+
+
+Copyright (c) 2008 Lee Butler, released under the MIT license and 'You might consider buying me lunch.'

@@ -1,0 +1,39 @@
+/* -------- BEGIN: INPUTS_WITH_CLASS PLUGIN CLASSES --------
+  These are the classes the 'inputs_with_class' plugin 
+  adds to rails-generated <input> and <select> tags. If an
+  INPUTS_WITH_CLASS_PREFIX was added or changed to customize 
+  the names generated, remember to add/change that prefix in the class 
+  names here to match. See vendor/plugins/inputs_with_class/README 
+  for the full skinny. */
+  
+  /* booleans */ 
+  input.checkbox  { border: 1px solid #999; vertical-align: middle; }
+  input.radio     { border: 1px solid #999; vertical-align: middle; }
+
+  /* buttons */ 
+  input.button    { border: 1px solid #999; }
+  input.image     { border: 1px solid #999; }
+  input.submit    { border: 1px solid #999; }
+
+  /* textboxes */ 
+  input.password  { border: 1px solid #999; }
+  input.hidden    { border: 1px solid #999; }
+  input.file      { border: 1px solid #999; }
+  input.text      { border: 1px solid #999; }
+  textarea        { border: 1px solid #999; }
+  
+  /* lists */ 
+  select.single   { border: 1px solid #999; }
+  select.multiple { border: 1px solid #999; }
+  
+/* ------- END: INPUTS_WITH_CLASS PLUGIN CLASSES ------- */
+
+
+
+/* ------------ BEGIN: OBNOXIOUS TEST STYLES ----------- */
+/* input.checkbox,input.radio,input.button,input.image,
+  input.submit,input.password,input.text,input.hidden,
+  textarea,input.file,select.multiple,select.single { 
+      margin-left: 200px; !important
+      border-color: red; !important } */
+/* ------------ END: OBNOXIOUS TEST STYLES ------------- */

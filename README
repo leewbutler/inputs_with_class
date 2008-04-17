@@ -94,9 +94,10 @@ right out of the starting gates.
 
 == To Install
 
-  1. Git it into your plugins directory.
-
-        git clone git@github.com:leewbutler/inputs_with_class.git
+  1. From your plugins directory.
+ 
+        git clone git://github.com/leewbutler/inputs_with_class.git
+        
 
   2. Add the css file to your public/stylesheets directory.
 

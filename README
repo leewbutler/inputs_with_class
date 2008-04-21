@@ -1,6 +1,17 @@
 = InputsWithClass 
 
-== Intro
+== Quick Intro
+
+  * Rails generated <input/> tags automatically get classed for their ‘type’ value.
+  * Rails generated select lists automatically get classed as ‘single’ or ‘multiple’.
+  * Avoid name conflicts with your existing css classes by adding an optional class-name prefix.
+  * Generate a starter stylesheet with some crisp default styles.
+  * Plays nice with any ad-hoc helper classing you do.
+  * To get unclassy again just pass in :class => false.
+  * 25 tests confirm functionality in all relevant rails helpers.
+
+
+== Detailed Intro
 
 Inputs_with_class automatically applies best-practice (universal standard) css naming conventions to
 all rails generated form elements, giving your css developer full style control of forms 

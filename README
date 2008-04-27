@@ -116,7 +116,7 @@ right out of the starting gates.
 
   3. Call the stylesheet from the head of your .erb template.
 
-        <%= stylesheet_link_tag 'input_classes.css' %> 
+        <%= stylesheet_link_tag 'inputs_with_class.css' %> 
 
 
 Copyright (c) 2008 Lee Butler, released under the MIT license and 'You might consider buying me lunch.'

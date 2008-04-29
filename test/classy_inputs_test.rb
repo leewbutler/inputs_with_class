@@ -13,7 +13,7 @@ class Jewel
   attr_accessor :name, :id
 end
 
-class ClassyInputsTest < Test::Unit::TestCase 
+class InputsWithClassTest < Test::Unit::TestCase 
   include ActionView::Helpers::AssetTagHelper
   include ActionView::Helpers::TagHelper
   include ActionView::Helpers::FormTagHelper

@@ -1,8 +1,8 @@
-# ClassyInputsHelper adds it functionality to existing Rails helpers in three ways: 
+# InputsWithClassHelper adds it functionality to existing Rails helpers in three ways: 
 #
 #     1. Opens the module ActionView::Helpers::TagHelper and employs alias_method_chain to add functionality to its 'tag' method.
 #
-#     2. Opens the class ClassyInputs::Helpers::ClassyInputsHelperand employs alias_method_chain to add functionality to its 'tag' method.
+#     2. Opens the class InputsWithClass::Helpers::InputsWithClassHelper and employs alias_method_chain to add functionality to its 'tag' method.
 #
 #     3. An existing alias_method does not allow us to use the technique for the 5 remaining html selection helpers so 
 #        instead we overide each of the 5 helper calls, add the functionality, then pass the call on to its origional handler.
@@ -16,7 +16,7 @@
 
 module LeeWB #:nodoc:
   module Helpers #:nodoc:
-    module InputsWithClassHelper #ClassyInputsHelper 
+    module InputsWithClassHelper 
       
       # Allows a css class prefix to be added in config/environment.rb
       INPUTS_WITH_CLASS_PREFIX = '' unless defined?(INPUTS_WITH_CLASS_PREFIX)

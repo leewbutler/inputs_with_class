@@ -80,6 +80,10 @@ class InputsWithClassTest < Test::Unit::TestCase
     assert_equal '<input class="radio" id="pirate_agree_1" name="pirate[agree]" type="radio" value="1" />', radio_button(:pirate, :agree, 1)
   end
   
+  def test_should_class_text_field_tag_and_include_the_userdefined_class
+    assert_equal '<input class="userdefinedclass text" id="name" name="name" type="text" value="somevalue" />', text_field_tag('name', 'somevalue', :class =>'userdefinedclass')
+  end
+  
   # FormTagHelper tests
   
   def test_should_class_text_field_tag
@@ -170,6 +174,14 @@ class InputsWithClassTest < Test::Unit::TestCase
       _erbout.concat f.collection_select(:favorite_jewel, @jewels, :id, :name, {}, {:multiple => true, :size =>3})
     end
     assert_output_has_css_class(_erbout, 'test_collection_select_multi', 'multiple')
+  end
+  
+  def test_should_class_collection_select_single_and_include_the_userdefined_class
+    _erbout = ''
+    form_for :pirate, @pirate, :url => 'stub', :html => { :class => 'stub', :id => 'stub' } do |f|
+      _erbout.concat f.collection_select(:favorite_jewel, @jewels, :id, :name, {}, {:class =>'userdefinedclass'})
+    end
+    assert_output_has_css_class(_erbout, 'test_collection_select_single', 'userdefinedclass single')
   end
 
   private

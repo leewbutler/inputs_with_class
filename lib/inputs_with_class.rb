@@ -69,7 +69,7 @@ module LeeWB #:nodoc:
         if options['class'] == false # ...allows explicit canceling of css classing
           options['class'] = nil
         else
-          options['class'] = options.has_key?('class') ? (' ' + INPUTS_WITH_CLASS_PREFIX + cssclass) : (INPUTS_WITH_CLASS_PREFIX + cssclass)
+          options['class'] = options.has_key?('class') ? options['class'] + (' ' + INPUTS_WITH_CLASS_PREFIX + cssclass) : (INPUTS_WITH_CLASS_PREFIX + cssclass)
         end
         options
       end
